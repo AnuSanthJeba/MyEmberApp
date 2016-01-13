@@ -1,0 +1,31 @@
+<div class="body-alignment" id="content">
+<table class="center">
+  <tr>
+    <td><label><h4>Question/{{model.questionid}}</h4></label></td>
+    <td>{{timer-question autoStart='true' isTransitionToRoute=isTransitionToRoute format='MM:SS'}}</td>
+    <td><label><h4>Weight 4</h4></label></td>
+  </tr>
+  <tr>
+    <td colspan="3"><h2>{{model.questionname}} </h2></td>
+  </tr>
+  <tr>
+    <td>
+	<ul id="main">
+        {{#each model.options as |todo|}}
+            <li class="completed">
+                <label><h3>
+                {{radio-button name="myRadio" value=todo checked=this.selectedOption}}
+                {{todo}}
+                </h3></label>
+            </li>
+        {{/each}}
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td><Button {{action "quitGame" on="click" }}> Quit </Button></td>
+    <td><Button {{action "nextQuestion" model.questionid model.answer false on="click" }}> Next </Button></td>
+    <td><Button {{action "nextQuestion" model.questionid model.answer true on="click" }}> Pass </Button></td>
+  </tr>
+</table>
+</div> 
